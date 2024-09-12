@@ -1,0 +1,7 @@
+{
+  "name": "liveTracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
