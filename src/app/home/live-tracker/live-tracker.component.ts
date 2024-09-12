@@ -18,11 +18,22 @@ export class LiveTrackerComponent implements OnInit {
     mapTypeControl: false,
     fullscreenControl: false,
   };
+  
   private directionsService: google.maps.DirectionsService;
   private directionsRenderer: google.maps.DirectionsRenderer;
   private map: google.maps.Map | null = null;
 
   private loader: Loader;
+
+  driverIcon = {
+    url: '../../../assets/icon/bike.png', // Driver icon
+    scaledSize: new google.maps.Size(50, 50),
+  };
+
+  userIcon = {
+    url: '../../../assets/icon/user.png', // Customer icon
+    scaledSize: new google.maps.Size(50, 50),
+  };
 
   constructor() {
     this.loader = new Loader({
@@ -67,6 +78,15 @@ export class LiveTrackerComponent implements OnInit {
     this.directionsService.route(request, (result, status) => {
       if (status === google.maps.DirectionsStatus.OK) {
         this.directionsRenderer.setDirections(result);
+
+        // Apply the green polyline after route calculation
+        this.directionsRenderer.setOptions({
+          polylineOptions: {
+            strokeColor: 'green', // Green route line
+            strokeOpacity: 1.0,
+            strokeWeight: 6,
+          }
+        });
       } else {
         console.error('Error fetching directions', status);
       }

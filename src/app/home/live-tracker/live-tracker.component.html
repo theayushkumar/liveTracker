@@ -19,6 +19,7 @@
         *ngIf="driverLocation"
         [position]="driverLocation"
         [title]="'Driver Location'"
+        [icon]="driverIcon"
       ></map-marker>
 
       <!-- Customer Marker -->
@@ -26,6 +27,7 @@
         *ngIf="customerLocation"
         [position]="customerLocation"
         [title]="'Customer Location'"
+        [icon]="userIcon"
       ></map-marker>
     </google-map>
   </div>
