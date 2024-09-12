@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Live Tracking</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="height: 100%; width: 100%">
+    <google-map
+      height="100%"
+      width="100%"
+      [center]="mapCenter"
+      [zoom]="zoom"
+      [options]="mapOptions"
+      (mapLoad)="onMapLoad($event)"
+    >
+      <!-- Driver Marker -->
+      <map-marker
+        *ngIf="driverLocation"
+        [position]="driverLocation"
+        [title]="'Driver Location'"
+      ></map-marker>
+
+      <!-- Customer Marker -->
+      <map-marker
+        *ngIf="customerLocation"
+        [position]="customerLocation"
+        [title]="'Customer Location'"
+      ></map-marker>
+    </google-map>
+  </div>
+</ion-content>
