@@ -1,0 +1,11 @@
+{
+  "appId": "com.livetracker.app",
+  "appName": "Live Tracker",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
